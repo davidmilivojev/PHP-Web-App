@@ -71,18 +71,19 @@ for ($i=0; $i<=count($data)-1;$i++)
 
                    foreach($konferencije as $k):
                    ?>
-                     <option value="<?php echo $k->get_idKonferencija(); ?>">  <?php echo $k->get_naziv(); ?> </option>
-                   <?php
+                     <option value="<?php echo $k->get_idKonferencija(); ?>"
+                       <?php if ($k->get_idKonferencija() == $predavanje->get_konferencija()->get_idKonferencija()) echo " selected"; ?>>
+                         <?php echo $k->get_naziv(); ?> </option>
+                       <?php
                    endforeach;
                    ?>
               </select>
               <input type="submit" name="filt" value="Filtriraj">
           </form>
-          <a class="all-events" name="tez" href="event.php">Prikazi sve</a>
+          <a class="all-events" href="indexevent.php">Prikazi sve</a>
           <div class="clr">
           </div>
         </div>
-          <h4 class="create-konf"><a href="createevent.php">Kreiranje predavanja</a></h4>
         	<?php foreach($predavanja as $p): ?>
             <div class="index-items">
               <div class="index-item-header">

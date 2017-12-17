@@ -51,8 +51,8 @@ for ($i=0; $i<=count($data)-1;$i++)
         <h1>Administracija konferencija</h1>
         <h4 class="create-konf"><a href="create.php">Kreiranje konferencije</a></h4>
         <?php foreach($konferencije as $k): ?>
-          <div class="konf-items">
-            <h2 class="konfy">
+          <div class="access-items">
+            <h2 class="access-title">
               Naziv: <?php echo $k->get_naziv(); ?>
             </h2>
             <form alt="edit"name="edit<?php echo $k->get_idKonferencija(); ?>" method="GET" action="edit.php">

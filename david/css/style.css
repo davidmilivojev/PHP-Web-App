@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: arial;
 }
 
 body{
@@ -13,26 +14,38 @@ body{
   margin: 0 auto;
 }
 
-.menu ul li{
-  display: inline;
+
+ul{
   list-style: none;
-  color: white;
-  font-family: arial;
-  font-size: 14px;
-  /*padding: 20px;*/
 }
+
+.menu > ul > li{
+  float: left;
+  position: relative;
+}
+
 .menu li a{
+  display: block;
+  padding: 17px;
   color: white;
   text-decoration: none;
-  padding: 15px;
+  background: black;
+  font-size: 14px;
 }
 
 .menu li a:hover{
   background: #54dd96;
 }
+.dropdown{
+  position: relative;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+}
 
-.menu{
-  float: left;
+.dropdown:hover .dropdown-content{
+  display: block;
 }
 
 .search{
@@ -57,7 +70,7 @@ input{
 }
 header{
   background: black;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
 }
 .content{
   background:#FFF;
@@ -104,6 +117,15 @@ form[name="kreirajnalog"]{
   margin: 0 auto;
 
 }
+
+form[action="index.php"]{
+  width: 100%;
+  max-width: 300px;
+  float: right;
+  padding: 15px 0px;
+}
+
+
 
 input[name="username"],
 input[name="password"],
@@ -160,18 +182,26 @@ input[value="Izmeni"]{
   padding: 10px;
   border: 1px solid #404040;
 }
+
 input[value="Obriši"]{
   background: white;
   color: black;
   border: 1px solid #404040;
 }
-.konf-items{
+
+
+input[value="Izmeni"]:hover{
+  border: 1px solid white;
+}
+
+
+.access-items{
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.konfy{
+.access-title{
   width: 450px;
   float: left;
   border: 1px solid #404040;
@@ -191,12 +221,22 @@ input[value="Obriši"]{
 }
 
 table{
+  /* border-top: 40px solid #54dd96; */
   margin: 0 auto;
+  background: #404040;
+  padding: 10px;
+}
+
+td{
+  color: white;
 }
 
 input[value="Snimi"]{
   background: #54dd96;
   padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 
 option,

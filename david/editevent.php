@@ -75,7 +75,7 @@ else header('Location: event.php');
       <img class="banner" src="images/banner.png" alt="">
       <div class="content">
         <h1>Izmena predavanja: <?php echo $predavanje->get_naziv(); ?> </h1>
-        <form name="konf"method="post" action="editevent.php">
+        <form name="konf" method="post" action="editevent.php">
         <table>
           <tr>
             <td>Naziv:</td>
@@ -88,14 +88,20 @@ else header('Location: event.php');
           <tr>
             <td>Pocetak:</td>
             <td>
-              <input type="date" name="Pocetak">
-              <input type="time" name="PocetakVreme">
+              <input type="date" name="Pocetak" value="<?php
+                $time = strtotime($predavanje->get_pocetak());
+                $myFormatForView = date("d.m.Y.", $time);
+                echo $myFormatForView; ?> ">
+              <input type="time" name="PocetakVreme" value="<?php
+                $time = strtotime($predavanje->get_pocetak());
+                $myFormatForView = date("G:i",$time);
+                echo $myFormatForView; ?> " >
             </td>
           </tr>
           <tr>
             <td>Kraj:</td>
             <td>
-              <input type="date" name="Kraj">
+              <input type="date" name="Kraj" value="<?php echo $predavanje->get_kraj(); ?> ">
               <input type="time" name="KrajVreme">
             </td>
           </tr>

@@ -116,9 +116,10 @@ else header('Location: list.php');
                         foreach($rangovi as $k):
                        ?>
 
-                 <option value="<?php echo $k->get_idRang(); ?>"
-                     <?php if ($k->get_idRang() == $konferencija->get_rang()->get_idRang()) echo " selected"; ?>
-                         > <?php echo $k->get_nazivRang(); ?> </option>
+                    <option value="<?php echo $k->get_idRang(); ?>"
+                       <?php if ($k->get_idRang() == $konferencija->get_rang()->get_idRang()) echo " selected"; ?>
+                           > <?php echo $k->get_nazivRang(); ?>
+                    </option>
                         <?php
                         endforeach;
                     ?>
