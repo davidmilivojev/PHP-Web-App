@@ -69,10 +69,10 @@ else header('Location: list.php');
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Izmena konferencije: <?php echo $konferencija->get_naziv(); ?></h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Izmena konferencije: <?php echo $konferencija->get_naziv(); ?></h1>
         <form name="konf" method="post" action="edit.php">
   				<table>
   					<tr>
@@ -137,6 +137,8 @@ else header('Location: list.php');
   				</table>
   			</form>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

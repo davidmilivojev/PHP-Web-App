@@ -282,7 +282,7 @@
                 $predavanje->set_konferencija($konfDAL->GetOne((int) $this->_request['Konferencija']));
 
                 $predavanjeDAL = new PredavanjeDAL();
-                $succ = $predavanjeDAL->DeleteOne($predavanje);
+                $succ = $predavanjeDAL->EditOne($predavanje);
                 if (!$succ) $this->response('false', 204);
                 else $this->response('true', 200);
             }

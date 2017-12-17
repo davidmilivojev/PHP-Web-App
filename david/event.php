@@ -50,10 +50,10 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Administracija Predavanja</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Administracija Predavanja</h1>
         <div class="admin-panel">
           <form name="trazi" method="GET" action="event.php">
             <select class="filtKonf" name="search">
@@ -90,7 +90,7 @@ for ($i=0; $i<=count($data)-1;$i++)
           <h4 class="create-konf"><a href="createevent.php">Kreiranje predavanja</a></h4>
         	<?php foreach($predavanja as $p): ?>
             <div class="access-items">
-              <h2 class="access-title">Naziv: <?php echo $p->get_naziv(); ?></h2>
+              <h2 class="access-title control">Naziv: <?php echo $p->get_naziv(); ?></h2>
               <form alt="edit" name="edit<?php echo $p->get_idPredavanje(); ?>" method="GET" action="editevent.php">
                 <input type="hidden" name="id" value="<?php echo $p->get_idPredavanje(); ?>"/>
                 <input type="Button" value="Izmeni" onclick="document.edit<?php echo $p->get_idPredavanje(); ?>.submit()"/>
@@ -104,6 +104,8 @@ for ($i=0; $i<=count($data)-1;$i++)
             </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

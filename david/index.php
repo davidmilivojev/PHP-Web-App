@@ -45,10 +45,10 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Lista konferencija</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Lista konferencija</h1>
         	<?php foreach($konferencije as $k): ?>
             <div class="index-items">
               <div class="index-item-header">
@@ -59,6 +59,8 @@ for ($i=0; $i<=count($data)-1;$i++)
             </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

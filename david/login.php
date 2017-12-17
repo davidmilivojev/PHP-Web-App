@@ -62,10 +62,10 @@ if (!empty($_POST['username']) && !empty($_POST['password']))
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Prijava</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Prijava</h1>
         <div class="index-items">
           <form name="login" method="POST" action="login.php">
             <h2>Korisnik:</h2>
@@ -74,9 +74,11 @@ if (!empty($_POST['username']) && !empty($_POST['password']))
             <input type="password" name="password" required oninvalid="setCustomValidity('Unesite password... ')" onchange="try{setCustomValidity('')}catch(e){}" />
             <br><input type="submit" value="Login">
 			    </form>
-        <p class="create-user"><a href="createaccount.php">Ukoliko nemate nalog kreirajte ga ovde</a></p>
+        <h3 class="create-user"><a href="createaccount.php">Ukoliko nemate nalog kreirajte ga ovde</a></h3>
       </div>
     </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

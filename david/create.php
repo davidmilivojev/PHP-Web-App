@@ -50,11 +50,11 @@ if (!empty($_POST['action']))
           </div>
           <div class="clr"></div>
         </div>
-      </header>
-    <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
+    </header>
+  <img class="banner" src="images/banner.png" alt="">
+  <h1>Kreiranje konferencije</h1>
+  <div class="wrapper">
       <div class="content">
-        <h1>Kreiranje konferencije</h1>
           <form name="konf"method="post" action="create.php">
           <table>
             <tr>
@@ -102,6 +102,8 @@ if (!empty($_POST['action']))
           </table>
         </form>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

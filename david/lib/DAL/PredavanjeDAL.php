@@ -72,12 +72,12 @@ class PredavanjeDAL extends DAL implements CommonDatabaseMethods
 
   public function EditOne($object)
   {
-      $object->ValidateFields();
+      //$object->ValidateFields();
       //dodao 5
-      $sqlQuery="UPDATE Predavanje SET Naziv = :naziv, Predavaci = :pedavaci, Pocetak = :pocetak,  Kraj = :kraj, Konferencija = :konferencija WHERE idPredavanje = :idPredavanje";
+      $sqlQuery="UPDATE Predavanje SET Naziv = :naziv, Predavaci = :predavaci, Pocetak = :pocetak,  Kraj = :kraj, Konferencija = :konferencija WHERE idPredavanje = :idPredavanje";
       $params = array(":naziv"=>$object->get_naziv(),
               ":predavaci" =>$object->get_predavaci(),
-              ":pocetak" =>$object->get_poectak(),
+              ":pocetak" =>$object->get_pocetak(),
               ":kraj" =>$object->get_kraj(),
               //dodao 6
               ":konferencija"=>$object->get_konferencija()->get_idKonferencija(),

@@ -19,6 +19,23 @@ for ($i=0; $i<=count($data)-1;$i++)
     array_push($predavanja, $predavanje);
 }
 
+     $konferencija = new Konferencija();
+
+if (!empty($_GET["search"]))
+{
+
+     $id = $_GET['search']; // iz url adrese edit.php?id=XXX
+     $urlGet = "http://localhost/david/services/konferencija/?idKonferencije=".$id;
+     $curl = curl_init($urlGet);
+     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+     $response = curl_exec($curl);
+     $data = json_decode($response);
+
+     $konferencija = new Konferencija();
+     $konferencija->jsonDeserialize($data[0]);
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -47,13 +64,14 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
-    <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
-      <div class="content">
-        <h1>Lista predavanja</h1>
+  <img class="banner" src="images/banner.png" alt="">
+  <h1>Lista predavanja</h1>
+  <div class="wrapper">
+    <div class="content">
         <div class="admin-panel">
           <form name="trazi" method="GET" action="indexevent.php">
             <select class="filtKonf" name="search">
+              <option value="default">nesto</option>
                <?php
 
                    $curl = curl_init('http://localhost/david/services/konferencije');
@@ -72,7 +90,7 @@ for ($i=0; $i<=count($data)-1;$i++)
                    foreach($konferencije as $k):
                    ?>
                      <option value="<?php echo $k->get_idKonferencija(); ?>"
-                       <?php if ($k->get_idKonferencija() == $predavanje->get_konferencija()->get_idKonferencija()) echo " selected"; ?>>
+                       <?php if (!empty($_GET["search"]))  if ($k->get_idKonferencija() == $_GET["search"]) echo " selected"; ?>>
                          <?php echo $k->get_naziv(); ?> </option>
                        <?php
                    endforeach;
@@ -83,6 +101,13 @@ for ($i=0; $i<=count($data)-1;$i++)
           <a class="all-events" href="indexevent.php">Prikazi sve</a>
           <div class="clr">
           </div>
+        </div>
+        <div class="index-items">
+          <div class="index-item-header">
+          </div>
+          <h2>Naziv: <?php echo $konferencija->get_naziv(); ?></h2>
+          <p>Opis: <?php echo $konferencija->get_opis(); ?></p>
+          <p>Rang: <?php if ($konferencija->get_rang()!=NULL) echo $konferencija->get_rang()->get_nazivRang(); ?></p>
         </div>
         	<?php foreach($predavanja as $p): ?>
             <div class="index-items">
@@ -105,6 +130,8 @@ for ($i=0; $i<=count($data)-1;$i++)
             </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

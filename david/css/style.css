@@ -4,10 +4,6 @@
   font-family: arial;
 }
 
-body{
-  background: #c3c3c3;
-}
-
 .wrapper{
   width: 100%;
   max-width: 960px;
@@ -75,33 +71,49 @@ header{
 .content{
   background:#FFF;
   font-family: arial;
-  margin-top:-5px;
-  padding-bottom: 100px;
-  /*height: 100vh;*/
+  margin-bottom: 20px;
 }
-.content h1{
+body h1{
   background:#404040;
   text-align: center;
   color: white;
   font-size: 22px;
   padding: 10px 0px;
+  margin-top: -5px;
+  border-bottom: 10px solid #54dd96;
 }
+
 .content h2{
   /*max-width: 600px;*/
   color: #54dd96;
   padding: 10px;
   font-size: 14px;
   background: #404040;
+  border: 1px solid #54dd96;
 }
 .content p{
   max-width: 600px;
   font-size: 14px;
   padding: 10px;
   color: white;
+  /* margin: 0 auto; */
 }
+
+.content h3{
+  max-width: 600px;
+  font-size: 14px;
+  padding: 10px;
+  color: white;
+  margin: 0 auto;
+}
+
 footer{
   background: black;
   padding: 15px;
+}
+.footer-top{
+  height: 40px;
+  background: #404040;
 }
 
 footer p{
@@ -115,6 +127,7 @@ form[name="kreirajnalog"]{
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  padding: 10px 0px;
 
 }
 
@@ -131,7 +144,10 @@ input[name="username"],
 input[name="password"],
 input[name="email"]{
   width: 99%;
-  border: 1px solid #404040;
+  border: 1px solid #54dd96;
+  line-height: 2;
+  font-size: 14px;
+  color: #404040;
 }
 .create-user{
   text-align: center;
@@ -153,11 +169,12 @@ input[value="Kreiraj nalog"]{
 
 .banner{
   width: 100%;
+  max-height: 300px;
 }
 
 .index-items{
   width: 100%;
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 20px auto;
   background: #404040;
 }
@@ -207,6 +224,10 @@ input[value="Izmeni"]:hover{
   border: 1px solid #404040;
 }
 
+.access-title.control{
+  border: 1px solid #404040;
+}
+
 .create-konf{
   max-width: 600px;
   margin: 0 auto;
@@ -253,6 +274,7 @@ select{
 
 form[name="konf"]{
   margin: 20px 0px;
+  background: #404040;
 }
 
 
@@ -274,7 +296,7 @@ select[name="Konferencija"]{
 input[value="Filtriraj"]{
   background: #54dd96;
   float: right;
-  padding: 7.5px;
+  padding: 8px;
   margin-right: 5px;
   border: 2px solid white;
   color: black;
@@ -294,5 +316,5 @@ input[value="Filtriraj"]{
 
 .admin-panel{
   background:#54dd96;
-  padding: 5px 0px;
+  padding: 0px 5px 10px;
 }

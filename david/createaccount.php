@@ -51,10 +51,10 @@ if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['e
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Kreiraj nalog</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
-      <div class="content">
-        <h1>Kreiraj nalog</h1>
+      <div class="content">    
         <div class="index-items">
           <form name="kreirajnalog" method="POST" action="createaccount.php">
             <h2>Korisnik:</h2>
@@ -67,6 +67,8 @@ if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['e
           </form>
         </div>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">
