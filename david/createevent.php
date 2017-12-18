@@ -57,10 +57,10 @@ if (!empty($_POST['action']))
           <div class="clr"></div>
         </div>
       </header>
-      <div class="wrapper">
-        <img class="banner" src="images/banner.png" alt="">
-        <div class="content">
-          <h1>Kreiranje predavanja</h1>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Kreiranje predavanja</h1>
+    <div class="wrapper">
+      <div class="content">        
             <form name="konf"method="post" action="createevent.php">
             <table>
               <tr>
@@ -123,10 +123,12 @@ if (!empty($_POST['action']))
           </form>
         </div>
       </div>
-    <footer>
-      <div class="wrapper">
-        <p>Design by: David Milivojev</p>
+      <div class="footer-top">
       </div>
-    </footer>
+      <footer>
+        <div class="wrapper">
+          <p>Design by: David Milivojev</p>
+        </div>
+      </footer>
   </body>
 </html>

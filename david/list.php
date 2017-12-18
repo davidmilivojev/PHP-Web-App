@@ -45,14 +45,14 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Administracija konferencija</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Administracija konferencija</h1>
         <h4 class="create-konf"><a href="create.php">Kreiranje konferencije</a></h4>
         <?php foreach($konferencije as $k): ?>
-          <div class="konf-items">
-            <h2 class="konfy">
+          <div class="access-items">
+            <h2 class="access-title control">
               Naziv: <?php echo $k->get_naziv(); ?>
             </h2>
             <form alt="edit"name="edit<?php echo $k->get_idKonferencija(); ?>" method="GET" action="edit.php">
@@ -68,6 +68,8 @@ for ($i=0; $i<=count($data)-1;$i++)
           </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

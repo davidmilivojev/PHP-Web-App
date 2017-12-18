@@ -38,7 +38,7 @@ $kreirajTabeluKornisnik = "CREATE TABLE IF NOT EXISTS `korisnik` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;";
 
 
-$popuniTabeluRank = "INSERT INTO `rank` (`idRang`, `nazivRang`) VALUES
+$popuniTabeluRang = "INSERT INTO `rank` (`idRang`, `nazivRang`) VALUES
 (1, 'Medjunarodna'),
 (2, 'IEEE'),
 (3, 'Domaca');";

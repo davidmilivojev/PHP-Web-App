@@ -14,6 +14,7 @@ if (!empty($_POST['action']))
 
 
    $curl_post_data = array(
+           'id' => $_POST['id'],
            'Naziv' => $_POST['Naziv'],
            'Predavaci' => $_POST['Predavaci'],
            'Pocetak' => $_POST['Pocetak']." ".$_POST['PocetakVreme'].":00",
@@ -71,11 +72,11 @@ else header('Location: event.php');
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Izmena predavanja: <?php echo $predavanje->get_naziv(); ?> </h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Izmena predavanja: <?php echo $predavanje->get_naziv(); ?> </h1>
-        <form name="konf"method="post" action="editevent.php">
+        <form name="konf" method="post" action="editevent.php">
         <table>
           <tr>
             <td>Naziv:</td>
@@ -88,15 +89,27 @@ else header('Location: event.php');
           <tr>
             <td>Pocetak:</td>
             <td>
-              <input type="date" name="Pocetak">
-              <input type="time" name="PocetakVreme">
+              <input type="date" name="Pocetak" value="<?php
+                $time = strtotime($predavanje->get_pocetak());
+                $myFormatForView = date("Y-m-d", $time);
+                echo $myFormatForView; ?>">
+              <input type="time" name="PocetakVreme" value="<?php
+                $time = strtotime($predavanje->get_pocetak());
+                $myFormatForView = date("h:m",$time);
+                echo $myFormatForView; ?>" >
             </td>
           </tr>
           <tr>
             <td>Kraj:</td>
             <td>
-              <input type="date" name="Kraj">
-              <input type="time" name="KrajVreme">
+              <input type="date" name="Kraj" value="<?php
+                $time = strtotime($predavanje->get_kraj());
+                $myFormatForView = date("Y-m-d", $time);
+                echo $myFormatForView; ?>">
+              <input type="time" name="KrajVreme" value="<?php
+                $time = strtotime($predavanje->get_kraj());
+                $myFormatForView = date("h:m",$time);
+                echo $myFormatForView; ?>" >
             </td>
           </tr>
           <tr>
@@ -139,6 +152,8 @@ else header('Location: event.php');
         </table>
       </form>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

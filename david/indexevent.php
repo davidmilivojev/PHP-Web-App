@@ -19,6 +19,23 @@ for ($i=0; $i<=count($data)-1;$i++)
     array_push($predavanja, $predavanje);
 }
 
+     $konferencija = new Konferencija();
+
+if (!empty($_GET["search"]))
+{
+
+     $id = $_GET['search']; // iz url adrese edit.php?id=XXX
+     $urlGet = "http://localhost/david/services/konferencija/?idKonferencije=".$id;
+     $curl = curl_init($urlGet);
+     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+     $response = curl_exec($curl);
+     $data = json_decode($response);
+
+     $konferencija = new Konferencija();
+     $konferencija->jsonDeserialize($data[0]);
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -47,13 +64,14 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
-    <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
-      <div class="content">
-        <h1>Lista predavanja</h1>
+  <img class="banner" src="images/banner.png" alt="">
+  <h1>Lista predavanja</h1>
+  <div class="wrapper">
+    <div class="content">
         <div class="admin-panel">
           <form name="trazi" method="GET" action="indexevent.php">
             <select class="filtKonf" name="search">
+              <option value="default">---</option>
                <?php
 
                    $curl = curl_init('http://localhost/david/services/konferencije');
@@ -71,18 +89,35 @@ for ($i=0; $i<=count($data)-1;$i++)
 
                    foreach($konferencije as $k):
                    ?>
-                     <option value="<?php echo $k->get_idKonferencija(); ?>">  <?php echo $k->get_naziv(); ?> </option>
-                   <?php
+                     <option value="<?php echo $k->get_idKonferencija(); ?>"
+                       <?php if (!empty($_GET["search"]))  if ($k->get_idKonferencija() == $_GET["search"]) echo " selected"; ?>>
+                         <?php echo $k->get_naziv(); ?> </option>
+                       <?php
                    endforeach;
                    ?>
               </select>
               <input type="submit" name="filt" value="Filtriraj">
           </form>
-          <a class="all-events" name="tez" href="event.php">Prikazi sve</a>
+          <a class="all-events" href="indexevent.php">Prikazi sve</a>
           <div class="clr">
           </div>
         </div>
-          <h4 class="create-konf"><a href="createevent.php">Kreiranje predavanja</a></h4>
+        <?php
+            if (!empty($_GET["search"]))
+              {
+                echo "<div class=\"index-items-search\">";
+                echo "<h2>Naziv:";
+                echo $konferencija->get_naziv();
+                echo "</h2>";
+                echo "<p>Opis:";
+                echo $konferencija->get_opis();
+                echo "</p>";
+                echo "<p>Rang:";
+                if ($konferencija->get_rang()!=NULL) echo $konferencija->get_rang()->get_nazivRang();
+                echo "</p>";
+                echo "</div>";
+              }
+        ?>
         	<?php foreach($predavanja as $p): ?>
             <div class="index-items">
               <div class="index-item-header">
@@ -104,6 +139,8 @@ for ($i=0; $i<=count($data)-1;$i++)
             </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

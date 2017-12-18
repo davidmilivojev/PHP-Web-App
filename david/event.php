@@ -50,13 +50,14 @@ for ($i=0; $i<=count($data)-1;$i++)
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Administracija Predavanja</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.png" alt="">
       <div class="content">
-        <h1>Lista predavanja</h1>
         <div class="admin-panel">
           <form name="trazi" method="GET" action="event.php">
             <select class="filtKonf" name="search">
+              <option value="default">---</option>
                <?php
 
                    $curl = curl_init('http://localhost/david/services/konferencije');
@@ -74,35 +75,24 @@ for ($i=0; $i<=count($data)-1;$i++)
 
                    foreach($konferencije as $k):
                    ?>
-                     <option value="<?php echo $k->get_idKonferencija(); ?>">  <?php echo $k->get_naziv(); ?> </option>
-                   <?php
+                     <option value="<?php echo $k->get_idKonferencija(); ?>"
+                       <?php if (!empty($_GET["search"]))  if ($k->get_idKonferencija() == $_GET["search"]) echo " selected"; ?>>
+                         <?php echo $k->get_naziv(); ?> </option>
+                       <?php
                    endforeach;
                    ?>
               </select>
               <input type="submit" name="filt" value="Filtriraj">
           </form>
-          <a class="all-events" name="tez" href="event.php">Prikazi sve</a>
+          <a class="all-events" href="event.php">Prikazi sve</a>
           <div class="clr">
           </div>
         </div>
           <h4 class="create-konf"><a href="createevent.php">Kreiranje predavanja</a></h4>
         	<?php foreach($predavanja as $p): ?>
-            <div class="index-items">
-              <div class="index-item-header">
-              </div>
-              <h2>Naziv: <?php echo $p->get_naziv(); ?></h2>
-              <p>Predavaci: <?php echo $p->get_predavaci(); ?></p>
-              <p>Pocetak: <?php
-                $time = strtotime($p->get_pocetak());
-                $myFormatForView = date("d.m.Y.", $time)." u ". date("G:i",$time)."h";
-                echo $myFormatForView; ?>
-              </p>
-              <p>Kraj: <?php $time = strtotime($p->get_kraj());
-                $myFormatForView = date("d.m.Y.", $time)." u ". date("G:i",$time)."h";
-                echo $myFormatForView; ?>
-              </p>
-              <p>Konferencija: <?php echo $p->get_konferencija()->get_naziv(); ?></p>
-              <form alt="edit"name="edit<?php echo $p->get_idPredavanje(); ?>" method="GET" action="editevent.php">
+            <div class="access-items">
+              <h2 class="access-title control">Naziv: <?php echo $p->get_naziv(); ?></h2>
+              <form alt="edit" name="edit<?php echo $p->get_idPredavanje(); ?>" method="GET" action="editevent.php">
                 <input type="hidden" name="id" value="<?php echo $p->get_idPredavanje(); ?>"/>
                 <input type="Button" value="Izmeni" onclick="document.edit<?php echo $p->get_idPredavanje(); ?>.submit()"/>
               </form>
@@ -115,6 +105,8 @@ for ($i=0; $i<=count($data)-1;$i++)
             </div>
           <?php endforeach; ?>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">

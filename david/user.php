@@ -40,10 +40,10 @@
           <div class="clr"></div>
         </div>
       </header>
+    <img class="banner" src="images/banner.png" alt="">
+    <h1>Profil korisnika</h1>
     <div class="wrapper">
-      <img class="banner" src="images/banner.svg" alt="">
       <div class="content">
-        <h1>Profil korisnika</h1>
         <div class="index-items">
           <div class="index-item-header">
           </div>
@@ -57,6 +57,8 @@
         ?>
         </div>
       </div>
+    </div>
+    <div class="footer-top">
     </div>
     <footer>
       <div class="wrapper">
