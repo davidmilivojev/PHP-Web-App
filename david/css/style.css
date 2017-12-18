@@ -179,6 +179,15 @@ input[value="Kreiraj nalog"]{
   background: #404040;
 }
 
+.index-items-search{
+  width: 100%;
+  margin: 20px auto;
+  background: #54dd96;
+  border: 20px solid #404040;
+  box-sizing: border-box;
+}
+
+
 .index-item-header{
   width: 100%;
   height: 40px;

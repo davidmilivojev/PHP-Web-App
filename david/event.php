@@ -57,6 +57,7 @@ for ($i=0; $i<=count($data)-1;$i++)
         <div class="admin-panel">
           <form name="trazi" method="GET" action="event.php">
             <select class="filtKonf" name="search">
+              <option value="default">---</option>
                <?php
 
                    $curl = curl_init('http://localhost/david/services/konferencije');
@@ -75,7 +76,7 @@ for ($i=0; $i<=count($data)-1;$i++)
                    foreach($konferencije as $k):
                    ?>
                      <option value="<?php echo $k->get_idKonferencija(); ?>"
-                       <?php if ($k->get_idKonferencija() == $predavanje->get_konferencija()->get_idKonferencija()) echo " selected"; ?>>
+                       <?php if (!empty($_GET["search"]))  if ($k->get_idKonferencija() == $_GET["search"]) echo " selected"; ?>>
                          <?php echo $k->get_naziv(); ?> </option>
                        <?php
                    endforeach;

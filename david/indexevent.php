@@ -71,7 +71,7 @@ if (!empty($_GET["search"]))
         <div class="admin-panel">
           <form name="trazi" method="GET" action="indexevent.php">
             <select class="filtKonf" name="search">
-              <option value="default">nesto</option>
+              <option value="default">---</option>
                <?php
 
                    $curl = curl_init('http://localhost/david/services/konferencije');
@@ -102,13 +102,22 @@ if (!empty($_GET["search"]))
           <div class="clr">
           </div>
         </div>
-        <div class="index-items">
-          <div class="index-item-header">
-          </div>
-          <h2>Naziv: <?php echo $konferencija->get_naziv(); ?></h2>
-          <p>Opis: <?php echo $konferencija->get_opis(); ?></p>
-          <p>Rang: <?php if ($konferencija->get_rang()!=NULL) echo $konferencija->get_rang()->get_nazivRang(); ?></p>
-        </div>
+        <?php
+            if (!empty($_GET["search"]))
+              {
+                echo "<div class=\"index-items-search\">";
+                echo "<h2>Naziv:";
+                echo $konferencija->get_naziv();
+                echo "</h2>";
+                echo "<p>Opis:";
+                echo $konferencija->get_opis();
+                echo "</p>";
+                echo "<p>Rang:";
+                if ($konferencija->get_rang()!=NULL) echo $konferencija->get_rang()->get_nazivRang();
+                echo "</p>";
+                echo "</div>";
+              }
+        ?>
         	<?php foreach($predavanja as $p): ?>
             <div class="index-items">
               <div class="index-item-header">
